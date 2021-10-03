@@ -4,8 +4,8 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 class Message(models.Model):
-	emitter = models.ForeignKey(User, related_name='+')
-	receiver = models.ForeignKey(User)
+	emitter = models.ForeignKey(User, related_name='+', on_delete=models.CASCADE)
+	receiver = models.ForeignKey(User, on_delete=models.CASCADE)
 	date_message = models.DateTimeField(default=timezone.now)
 	text = models.TextField(verbose_name='Message')
 	visualized = models.BooleanField(default=False)

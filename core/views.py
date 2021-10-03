@@ -7,7 +7,8 @@ from .models import Message
 import json
 
 def index(request):
-	if not request.user.is_authenticated():
+
+	if not request.user.is_authenticated:
 		return render(request, 'core/login.html')
 	else:
 		instance_message = Message()
@@ -56,7 +57,7 @@ def delete_account(request):
 	raise Http404
 
 def room(request, pkreceiver):
-	if not request.user.is_authenticated():
+	if not request.user.is_authenticated:
 		return render(request, 'core/login.html')
 	else:
 		instance_message = Message()
@@ -72,7 +73,7 @@ def about(request):
 # AJAX for the Chat room
 
 def messages_not_view(request, pkreceiver):
-	if not request.user.is_authenticated():
+	if not request.user.is_authenticated:
 		return render(request, 'core/login.html')
 	elif request.is_ajax():
 		instance_message = Message()
@@ -85,7 +86,7 @@ def messages_not_view(request, pkreceiver):
 	raise Http404
 
 def all_messages(request):
-	if not request.user.is_authenticated():
+	if not request.user.is_authenticated:
 		return render(request, 'core/login.html')
 	else:
 		if request.method == 'POST' and request.is_ajax():
@@ -100,7 +101,7 @@ def all_messages(request):
 	raise Http404
 
 def read_messages(request, pkreceiver):
-	if not request.user.is_authenticated():
+	if not request.user.is_authenticated:
 		return render(request, 'core/login.html')
 	elif request.is_ajax():
 		instance_message = Message()
@@ -112,7 +113,7 @@ def read_messages(request, pkreceiver):
 	raise Http404
 
 def send_message(request, pkreceiver):
-	if not request.user.is_authenticated():
+	if not request.user.is_authenticated:
 		return render(request, 'core/login.html')
 	else:
 		if request.method == 'POST' and request.is_ajax():
@@ -128,7 +129,7 @@ def send_message(request, pkreceiver):
 	raise Http404
 
 def verify_read(request):
-	if not request.user.is_authenticated():
+	if not request.user.is_authenticated:
 		return render(request, 'core/login.html')
 	else:
 		if request.method == 'POST' and request.is_ajax():
@@ -143,7 +144,7 @@ def verify_read(request):
 	raise Http404
 
 def delete_chat(request):
-	if not request.user.is_authenticated():
+	if not request.user.is_authenticated:
 		return render(request, 'core/login.html')
 	else:
 		if request.method == 'POST' and request.is_ajax():
