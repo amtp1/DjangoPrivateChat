@@ -84,14 +84,14 @@ function send_message(){
                     $("#information").html("");
                 }
                 else{
-                    alert("Não foi possivel enviar mensagem")
+                    alert("Невозможно отправить сообщение")
                 }
                 
 
             },
             error : function(xhr,errmsg,err) {
                 console.log(xhr.status + ": " + xhr.responseText);
-               alert("deu errado");
+               alert("Что-то пошло не так");
 
             }
         
@@ -153,7 +153,7 @@ function verify_read() {
              
         success : function(json) {
             if(json == true){
-                $("#alertvisualized").html("Visualized").addClass("pull-right txtvisualized");
+                $("#alertvisualized").html("Прочитано").addClass("pull-right txtvisualized");
             }else{
                 $("#alertvisualized").html("");
             }
@@ -181,7 +181,7 @@ function delete_chat(iduser) {
             if(json == true){
                 parent.window.document.location.href = '';
             }else{
-                alert("Erro ao excluir conversa!")
+                alert("Ошибка при удалении чата!")
             }
         },
 

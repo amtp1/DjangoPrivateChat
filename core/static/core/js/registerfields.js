@@ -10,7 +10,7 @@ function register(){
     var iUsername = $('#inputUsername').val()
     var iPass = $('#inputPassword').val()
     if (iName == '' || iUsername == '' || iPass == '') {
-        alert("Some fields are empty!");
+        alert("Некоторые поля пусты!");
     } else{
         $.ajax({
             url : "/register/",
@@ -25,13 +25,13 @@ function register(){
                 if (json == true) {
                     parent.window.document.location.href = '';
                 } else {
-                    alert("Something went wrong. Try with other parameters...");
+                    alert("Что-то пошло не так. Попробуйте с другими параметрами...");
                 }            
             },
 
             error : function(xhr,errmsg,err) {
                 console.log(xhr.status + ": " + xhr.responseText);
-               alert("Something went wrong.")
+               alert("Что-то пошло не так.")
 
             }
         }); 
@@ -44,7 +44,7 @@ function login(){
     var iPassL = $('#inputPasswordL').val()
     console.log(iUsernameL, iPassL)
     if (iUsernameL == '' || iPassL == '') {
-        alert("Some fields are empty!");
+        alert("Некоторые поля пусты!!");
     } else{
         $.ajax({
             url : "/login/",
@@ -58,13 +58,13 @@ function login(){
                 if (json == true) {
                     parent.window.document.location.href = '';
                 } else {
-                    alert("Incorrect parameters...");
+                    alert("Некорректные параметры...");
                 }            
             },
 
             error : function(xhr,errmsg,err) {
                 console.log(xhr.status + ": " + xhr.responseText);
-               alert("Something went wrong.")
+               alert("Что-то пошло не так.")
 
             }
         }); 
@@ -81,13 +81,13 @@ function logout(){
             if (json == true) {
                 parent.window.document.location.href = '';
             } else {
-                alert("Something went wrong....");
+                alert("Что-то пошло не так....");
             }            
         },
 
         error : function(xhr,errmsg,err) {
             console.log(xhr.status + ": " + xhr.responseText);
-           alert("Something went wrong.")
+           alert("Что-то пошло не так.")
 
         }
     }); 
@@ -104,13 +104,13 @@ function delete_account(){
             if (json == true) {
                 parent.window.document.location.href = '';
             } else {
-                alert("Something went wrong....");
+                alert("Что-то пошло не так....");
             }            
         },
 
         error : function(xhr,errmsg,err) {
             console.log(xhr.status + ": " + xhr.responseText);
-           alert("Something went wrong.")
+           alert("Что-то пошло не так.")
 
         }
     }); 
