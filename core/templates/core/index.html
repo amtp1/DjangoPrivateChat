@@ -1,18 +1,18 @@
 {% extends 'core/base.html' %}
 {% block title %}{% if count_messages %}({{ count_messages }}) {% endif %}Private Chat {% endblock %}
-{% load staticfiles %}
+{% load static %}
 {% block body %}
 
 <div class="container">
 	<div class="row">
 		<div class="col-sx-12">
-			<h1>Hi, {{ request.user.first_name }}</h1>			
-			<h3>{% if count_messages %}<span style="color: yellow">{{ count_messages }}</span> people talked to you.{% endif %}</h3>
-			<h4>To start a conversation, choose a user below and go to "chat". :)</h4>
+			<h1>Приветствую, {{ request.user.first_name }}</h1>			
+			<h3>{% if count_messages %}<span style="color: yellow">{{ count_messages }}</span> беседуют с вами.{% endif %}</h3>
+			<h4>Начать общение можно, выбрав чат снизу.</h4>
 		</div>
 		<div class="col-xs-11 col-sm-12 col-md-12 col-lg-12">
 			{% if recently_users %}
-				<h3>Your contacts:</h3>
+				<h3>Ваши собеседники:</h3>
 			{% endif %}		
 
 			<div id="slide_recently" data-slick='{"slidesToShow": 7, "slidesToScroll": 2}'>
@@ -27,7 +27,7 @@
 						{% if user.2 == False %}
 							<a href="{% url 'core:room' user.0.pk %}" class="btn btn-block btn-success btn-xs"><span class="label label-default">Not read</span> Chat</a>	
 						{% else %}
-							<a href="{% url 'core:room' user.0.pk %}" class="btn btn-block btn-success btn-xs">Chat</a>
+							<a href="{% url 'core:room' user.0.pk %}" class="btn btn-block btn-success btn-xs">Чат</a>
 						{% endif %}
 										
 					</div>
@@ -36,14 +36,14 @@
 			</div>
 		</div>
 		<div class="col-xs-11 col-sm-12 col-md-12 col-lg-12">
-			<h3>All users:</h3>
+			<h3>Все собеседники:</h3>
 
 			<div id="slide_all">
 				{% for user in all_users %}
-					<div class="element" data-toggle="tooltip" data-placement="right" title="Username: {{ user.username }} - Last login at {{ user.last_login }}">
+					<div class="element" data-toggle="tooltip" data-placement="right" title="Username: {{ user.username }} - Последний вход: {{ user.last_login }}">
 						<h3>{{ user.first_name|truncatechars:7 }}</h3>
-						<p class="detailMsg">Joined: {{ user.date_joined }}</p>
-						<a href="{% url 'core:room' user.pk %}" class="btn btn-block btn-primary btn-xs">Chat</a>										
+						<p class="detailMsg">Вступил: {{ user.date_joined }}</p>
+						<a href="{% url 'core:room' user.pk %}" class="btn btn-block btn-primary btn-xs">Начать общение</a>										
 					</div>
 				{% endfor %}
 
